@@ -6,11 +6,6 @@
     overflow-x: hidden;
 }
 
-.contenitore h1{
-    position: relative;
-    left: 44%;
-}
-
 .testo{
     width: 500px;
     position: relative;

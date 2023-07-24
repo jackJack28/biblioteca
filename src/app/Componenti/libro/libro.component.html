@@ -11,10 +11,10 @@
   <tbody>
     <tr *ngFor="let dato of dati" class="tr">
       <td>{{dato.idLibro}}</td>
-      <!--<td>{{dato[1].listaAutori}}</td>-->
+      <td>{{dato.listaAutori}}</td>
       <td>{{dato.titolo}}</td>
       <td>{{dato.categoria}}</td>
-      <td>{{dato.dataPubblicazione}}</td>
+      <td>{{dato.dataPubblicazione | date: 'dd/MM/YYYY'}}</td>
     </tr>
   </tbody>
 </table>

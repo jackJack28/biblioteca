@@ -1,19 +1,66 @@
-<!--<table class="fancy">
+<table class="fancy">
   <thead>
     <tr>
-    <th>Nome</th>
-    <th>Cognome</th>
-    <th>ID</th>
-    <th>Data di nascita</th>
+    <th>ID Libro</th>
+    <th>ID Utente</th>
+    <th>Data inizio prestito</th>
+    <th>Data fine prestito</th>
   </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dato of dati" class="tr">
-      <td>{{dato.nome}}</td>
-      <td>{{dato.cognome}}</td>
-      <td>{{dato.id}}</td>
-      <td>{{dato.dataNascita | date: 'dd/MM/YYYY'}}</td>
+      <td>{{dato.prestitoId.idLibro}}</td>
+      <td>{{dato.prestitoId.idUtente}}</td>
+      <td>{{dato.prestitoId.timestampPrestitoInizio | date: 'dd/MM/YYYY'}}</td>
+      <td>{{dato.timestampPrestitoFine | date: 'dd/MM/YYYY'}}</td>
     </tr>
   </tbody>
-</table>-->
+</table>
 
+<br><br><br>
+
+<table class="fancy">
+  <thead>
+    <tr>
+    <th>ID Libro</th>
+    <th>Titolo</th>
+    <th>Categoria</th>
+    <th>Data di pubblicazione</th>
+    <th>Autori</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dato of dati" class="tr">
+      <td>{{dato.libro.idLibro}}</td>
+      <td>{{dato.libro.titolo}}</td>
+      <td>{{dato.libro.categoria}}</td>
+      <td>{{dato.libro.dataPubblicazione | date: 'dd/MM/YYYY'}}</td>
+      <td>{{dato.libro.listaAutori}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br><br>
+
+<table class="fancy">
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Cognome</th>
+    <th>Data di nascita</th>
+    <th>Numero di telefono</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dato of dati" class="tr">
+      <td>{{dato.utente.id}}</td>
+      <td>{{dato.utente.nome}}</td>
+      <td>{{dato.utente.cognome}}</td>
+      <td>{{dato.utente.dataNascita | date: 'dd/MM/YYYY'}}</td>
+      <td>{{dato.utente.numeroTelefono}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="div"></div>

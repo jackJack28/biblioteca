@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSortModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
