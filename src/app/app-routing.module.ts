@@ -7,6 +7,7 @@ import { PrestitoComponent } from './Componenti/prestito/prestito.component';
 import { UtentiComponent } from './Componenti/utenti/utenti.component';
 import { NotfoundComponent } from './Componenti/notfound/notfound.component';
 import { HomeComponent } from './Componenti/home/home.component';
+import { FormComponent } from './Componenti/form/form.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "autori", component: AutoreComponent},
   {path: "prestiti", component: PrestitoComponent},
   {path: "utenti", component: UtentiComponent},
+  {path: "form", component: FormComponent},
   {path: "404", component: NotfoundComponent},
   {path: "**", redirectTo: "404", pathMatch:"full"},
 ];
