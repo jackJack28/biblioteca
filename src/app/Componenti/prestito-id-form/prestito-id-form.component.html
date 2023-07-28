@@ -1,0 +1,95 @@
+<h1>Compila i campi per registrare un prestito tramite gli ID</h1>
+
+<form #form="ngForm">
+    <section>
+        <h4>Prestito tabella 1</h4>
+        <div class="campi">
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>ID Libro</mat-label>
+                    <input type="number" name="idLibro" matInput [(ngModel)]="a" placeholder="Es: 1">
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>ID Utente</mat-label>
+                    <input type="number" name="idUtente" matInput [(ngModel)]="b" placeholder="Es: 1">
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>Data Inizio Prestito</mat-label>
+                    <input type="datetime-local" name="timestampPrestitoInizio" matInput [(ngModel)]="c" placeholder="Es: 1304-03-10T00:00:00">
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+        </div>
+        <h4>Prestito tabella 2</h4>
+        <div class="campi">
+            <div class="col-2">
+                <!--<mat-form-field>
+                    <mat-label>ID Libro</mat-label>
+                    <input type="number" name="idLibro" matInput [(ngModel)]="a" placeholder="Es: 1">
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>-->
+                <mat-form-field>
+                    <mat-label>Titolo</mat-label>
+                    <input type="text" name="titolo" matInput [(ngModel)]="d" placeholder="Es: Divina Commedia">
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>Categoria</mat-label>
+                    <input type="text" name="categoria" matInput [(ngModel)]="e" placeholder="Es: Romanzo">
+                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Data di Pubblicazione</mat-label>
+                    <input type="datetime-local" name="dataPubblicazione" matInput [(ngModel)]="f" placeholder="Es: 15/03/1400">
+                    <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+                <!--<mat-form-field>
+                    <mat-label>Autore</mat-label>
+                    <input type="text" name="autore" matInput [(ngModel)]="k" placeholder="Es: John Doe">
+                    <button *ngIf="k" matSuffix mat-icon-button aria-label="Clear" (click)="k=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>-->
+            </div>
+        </div>
+        <h4>Prestito tabella 3</h4>
+        <div class="campi">
+            <div class="col-2">
+                <!--<mat-form-field>
+                    <mat-label>ID Utente</mat-label>
+                    <input type="number" name="id" matInput [(ngModel)]="b" placeholder="Es: 1">
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>-->
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input type="text" name="nome" matInput [(ngModel)]="g" placeholder="Es: Marco">
+                    <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Cognome</mat-label>
+                    <input type="text" name="cognome" matInput [(ngModel)]="h" placeholder="Verdi">
+                    <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>Data di Nascita</mat-label>
+                    <input type="datetime-local" name="dataNascita" matInput [(ngModel)]="i" placeholder="Es: 22/05/1993">
+                    <button *ngIf="i" matSuffix mat-icon-button aria-label="Clear" (click)="i=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Numero di Telefono</mat-label>
+                    <input type="number" name="numeroTelefono" matInput [(ngModel)]="l" placeholder="Es: 3335478987">
+                    <button *ngIf="l" matSuffix mat-icon-button aria-label="Clear" (click)="l=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+        </div>
+    </section>
+    <section class="button">
+        <button mat-raised-button color="primary" (click)="postPrestito(form.value)">Invia</button>
+    </section>
+</form>

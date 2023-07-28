@@ -11,10 +11,16 @@
     </mat-form-field>
 </form>-->
 
+
 <mat-form-field>
   <mat-label>Filtra</mat-label>
   <input matInput  placeholder="Esempio: John Doe" #input> <!--(keyup)="applyFilter($event)"-->
 </mat-form-field>
+
+<section class="button">
+  <button mat-raised-button color="primary" routerLink="/formAutore">Aggiungi autore</button> <!--Perché devo mettere / prima del percorso ?-->
+  <button mat-raised-button color="warn" routerLink="/aggiornaAutore">Aggiorna autore</button>
+</section>
 
 <table class="fancy">
   <thead>
@@ -23,14 +29,18 @@
     <th>Cognome</th>
     <th>ID</th>
     <th>Data di nascita</th>
+    <th>Cancella</th>
   </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dato of dati" class="tr">
-      <td>{{dato.nome}}</td>
+      <td>{{dato.nome}}</td>  <!--[ngStyle]="{color: dato.nome === 'John' ? 'green' : 'red'}"-->
       <td>{{dato.cognome}}</td>
       <td>{{dato.id}}</td>
       <td>{{dato.dataNascita | date: 'dd/MM/YYYY'}}</td>
+      <td>
+        <span class="cancella" (click)="conferma(dato.id)">X</span>
+      </td>
     </tr>
     <!--<tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
@@ -38,3 +48,4 @@
   </tbody>
 </table>
 
+<div class="div"></div>

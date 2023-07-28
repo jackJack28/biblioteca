@@ -17,4 +17,8 @@ export class PrestitoService {
   getPrestiti(): Observable<Prestito[]> {
     return this.http.get<Prestito[]>(prestitoUrl+"/prestiti/getAll");
   }
+
+  postPrestiti(prestito: Prestito): Observable<Prestito> {
+    return this.http.post<Prestito>(prestitoUrl+"/prestiti/post", prestito);
+  }
 }

@@ -1,0 +1,35 @@
+<h1>Compila i campi per aggiornare un autore</h1>
+
+<form #form="ngForm">
+    <section>
+        <div class="campi">
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>ID Autore da aggiornare</mat-label>
+                    <input type="number" name="id" matInput [(ngModel)]="a" placeholder="Es: 1">
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input type="text" name="nome" matInput [(ngModel)]="b" placeholder="Es: Marco">
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Cognome</mat-label>
+                    <input type="text" name="cognome" matInput [(ngModel)]="c" placeholder="Es: Verdi">
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>Data di Nascita</mat-label>
+                    <input type="datetime-local" name="dataNascita" matInput [(ngModel)]="d" placeholder="Es: 1304-03-10T00:00:00">
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+            </div>
+        </div>
+    </section>
+    <section class="button">
+        <button mat-raised-button color="primary" (click)="updateAutore(form.value.id, form.value)">Invia</button>
+    </section>
+</form>

@@ -1,5 +1,6 @@
 //import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Autore } from 'src/app/Interfacce/autore';
 
 //import { Observable, from } from 'rxjs';
 import { AutoreService } from 'src/app/Service/autore.service';
@@ -31,6 +32,31 @@ export class AutoreComponent implements OnInit {
           mode: 'no-cors' //Questa è riga di codice più importante però sebbene si riesce a risolvere il problema di cors, il browser poi non sa come mandare a schermo i dati.
         }
       ));
+  }*/
+
+  deleteAutori(id: number){
+    this.service.deleteAutore(id)
+    .subscribe((res) => {
+      console.log(res);
+      this.ngOnInit();
+    })
+  }
+
+  conferma(id: number){
+    if(confirm('Sei sicuro di voler eliminare questo dato ?') == true){
+      this.service.deleteAutore(id)
+    .subscribe((res) => {
+      console.log(res);
+      this.ngOnInit();
+    })
+    }
+  }
+
+  /*getAutorebyId(id: number){
+    this.service.getAutorebyId(id)
+    .subscribe((res) => {
+      console.log(res);
+    })
   }*/
 
   dati: any

@@ -1,0 +1,36 @@
+h1{
+    margin-left: 29.5%;
+    padding-top: 80px;
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+section{
+    padding-left: 20%;
+    padding-bottom: 30px;
+}
+
+h4{
+    font-weight: 430;
+    margin-bottom: 20px;
+}
+
+.campi{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.col-2{
+    flex-basis: 50%;
+}
+
+.button{
+    padding-left: 45%;
+    padding-bottom: 120px;
+    padding-top: 30px;
+}
+
+button{
+    width: 90px;
+    font-size: large;
+}

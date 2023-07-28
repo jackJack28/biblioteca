@@ -1,3 +1,8 @@
+<section class="button">
+  <button mat-raised-button color="primary" routerLink="/formLibri">Aggiungi libro</button>
+  <button mat-raised-button color="warn" routerLink="/aggiornaLibro">Aggiorna libro</button>
+</section>
+
 <table class="fancy">
   <thead>
     <tr>
@@ -6,6 +11,7 @@
     <th>Titolo</th>
     <th>Categoria</th>
     <th>Data di pubblicazione</th>
+    <th>Cancella</th>
   </tr>
   </thead>
   <tbody>
@@ -15,7 +21,11 @@
       <td>{{dato.titolo}}</td>
       <td>{{dato.categoria}}</td>
       <td>{{dato.dataPubblicazione | date: 'dd/MM/YYYY'}}</td>
+      <td>
+        <span class="cancella" (click)="deleteLibro(dato.idLibro)">X</span>
+      </td>
     </tr>
   </tbody>
 </table>
 
+<div class="div"></div>

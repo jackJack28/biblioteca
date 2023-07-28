@@ -22,7 +22,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { LibriFormComponent } from './Componenti/libri-form/libri-form.component';
+import { AutoreFormComponent } from './Componenti/autore-form/autore-form.component';
+import { UtenteFormComponent } from './Componenti/utente-form/utente-form.component';
+import { PrestitoIdFormComponent } from './Componenti/prestito-id-form/prestito-id-form.component';
+import { AggiornaAutoreFormComponent } from './Componenti/aggiorna-autore-form/aggiorna-autore-form.component';
+import { AggiornaLibriFormComponent } from './Componenti/aggiorna-libri-form/aggiorna-libri-form.component';
+import { AggiornaUtenteFormComponent } from './Componenti/aggiorna-utente-form/aggiorna-utente-form.component';
 
 
 @NgModule({
@@ -35,7 +43,14 @@ import {FormsModule} from '@angular/forms';
     NavbarComponent,
     NotfoundComponent,
     HomeComponent,
-    FormComponent
+    FormComponent,
+    LibriFormComponent,
+    AutoreFormComponent,
+    UtenteFormComponent,
+    PrestitoIdFormComponent,
+    AggiornaAutoreFormComponent,
+    AggiornaLibriFormComponent,
+    AggiornaUtenteFormComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +66,8 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

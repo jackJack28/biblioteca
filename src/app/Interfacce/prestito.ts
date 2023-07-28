@@ -9,7 +9,7 @@ export interface Prestito {
         titolo: string,
         categoria: string,
         dataPubblicazione: string,
-        listaAutori: [],
+        //listaAutori: [],
     }
     utente: {
         nome: string,

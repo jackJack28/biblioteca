@@ -1,5 +1,5 @@
 <h1>Compila i campi per effettuare una richiesta HTTP</h1>
-<form #form="ngForm" (submit)="postLibri(form.value)">
+
     <mat-form-field class="http">
         <input type="text" matInput [matAutocomplete]="auto" placeholder="Tipo di Chiamata HTTP">
         <mat-autocomplete #auto="matAutocomplete">
@@ -8,7 +8,8 @@
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
-    
+
+<form #formm="ngForm">    
     <section>
         <h4>Aggiungi/aggiorna un libro</h4>
         <div class="campi">
@@ -35,80 +36,96 @@
                     <input type="text" name="dataPubblicazione" matInput [(ngModel)]="e" placeholder="Es: 15/03/1400">
                     <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
-                <!--<mat-form-field>
+                <mat-form-field>
                     <mat-label>Autore</mat-label>
                     <input type="text" name="listaAutori" matInput [(ngModel)]="b" placeholder="Es: John Doe">
                     <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=''"><mat-icon>close</mat-icon></button>
-                </mat-form-field>-->
+                </mat-form-field>
             </div>
         </div>
+        <mat-slide-toggle [checked]="controller.disabled" (change)="controller.disabled ? controller.enable() : controller.disable()">
+            Disabilita questi campi
+        </mat-slide-toggle>
     </section>
+</form>
 
-    <!--<section>
+<form #form="ngForm" (submit)="postAutori(form.value)">
+    <section>
         <h4>Aggiungi/aggiorna un autore</h4>
         <div class="campi">
             <div class="col-2">
+                <!--<form [formGroup]="editDirection..."></form>-->
                 <mat-form-field>
                     <mat-label>ID Autore</mat-label>
-                    <input type="text" name="id2" matInput [(ngModel)]="f" placeholder="Es: 1">
+                    <input type="number" name="id" matInput [(ngModel)]="f" placeholder="Es: 1" [formControl]="controller2">
                     <button *ngIf="f" matSuffix mat-icon-button aria-label="Clear" (click)="f=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Nome</mat-label>
-                    <input type="text" name="nome" matInput [(ngModel)]="g" placeholder="Es: Marco">
+                    <input type="text" name="nome" matInput [(ngModel)]="g" placeholder="Es: Marco" [formControl]="controller2">
                     <button *ngIf="g" matSuffix mat-icon-button aria-label="Clear" (click)="g=''"><mat-icon>close</mat-icon></button>
-                </mat-form-field>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Cognome</mat-label>
+                    <input type="text" name="cognome" matInput [(ngModel)]="h" placeholder="Es: Verdi" [formControl]="controller2">
+                    <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
             </div>
             <div class="col-2">
                 <mat-form-field>
-                    <mat-label>Cognome</mat-label>
-                    <input type="text" name="cognome" matInput [(ngModel)]="h" placeholder="Es: Verdi">
-                    <button *ngIf="h" matSuffix mat-icon-button aria-label="Clear" (click)="h=''"><mat-icon>close</mat-icon></button>
-                </mat-form-field><br>
-                <mat-form-field>
                     <mat-label>Data di Nascita</mat-label>
-                    <input type="text" name="dataNascita" matInput [(ngModel)]="i" placeholder="Es: 22/05/1993">
+                    <input type="text" name="dataNascita" matInput [(ngModel)]="i" placeholder="Es: 22/05/1993" [formControl]="controller2">
                     <button *ngIf="i" matSuffix mat-icon-button aria-label="Clear" (click)="i=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
             </div>
         </div>
+        <mat-slide-toggle [checked]="controller2.disabled" (change)="controller2.disabled ? controller2.enable() : controller2.disable()">
+            Disabilita questi campi
+        </mat-slide-toggle>
     </section>
+</form>
 
+<form #form="ngForm" (submit)="postUtenti(form.value)">
     <section>
         <h4>Aggiungi/aggiorna un utente</h4>
         <div class="campi">
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>ID Utente</mat-label>
-                    <input type="text" name="id3" matInput [(ngModel)]="l" placeholder="Es: 1">
+                    <input type="number" name="id" matInput [(ngModel)]="l" placeholder="Es: 1" [formControl]="controller3">
                     <button *ngIf="l" matSuffix mat-icon-button aria-label="Clear" (click)="l=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Nome</mat-label>
-                    <input type="text" name="nome2" matInput [(ngModel)]="m" placeholder="Es: Marco">
+                    <input type="text" name="nome" matInput [(ngModel)]="m" placeholder="Es: Marco" [formControl]="controller3">
                     <button *ngIf="m" matSuffix mat-icon-button aria-label="Clear" (click)="m=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Cognome</mat-label>
-                    <input type="text" name="cognome2" matInput [(ngModel)]="n" placeholder="Es: Verdi">
+                    <input type="text" name="cognome" matInput [(ngModel)]="n" placeholder="Es: Verdi" [formControl]="controller3">
                     <button *ngIf="n" matSuffix mat-icon-button aria-label="Clear" (click)="n=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
             </div>
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>Data di Nascita</mat-label>
-                    <input type="text" name="dataNascita2" matInput [(ngModel)]="o" placeholder="Es: 22/05/1993">
+                    <input type="text" name="dataNascita" matInput [(ngModel)]="o" placeholder="Es: 22/05/1993" [formControl]="controller3">
                     <button *ngIf="o" matSuffix mat-icon-button aria-label="Clear" (click)="o=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Numero di Telefono</mat-label>
-                    <input type="text" name="numeroTelefono" matInput [(ngModel)]="p" placeholder="Es: 3335478987">
+                    <input type="number" name="numeroTelefono" matInput [(ngModel)]="p" placeholder="Es: 3335478987" [formControl]="controller3">
                     <button *ngIf="p" matSuffix mat-icon-button aria-label="Clear" (click)="p=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field>
             </div>
         </div>
+        <mat-slide-toggle [checked]="controller3.disabled" (change)="controller3.disabled ? controller3.enable() : controller3.disable()">
+            Disabilita questi campi
+        </mat-slide-toggle>
     </section>
+</form>
 
+<form #form="ngForm" (submit)="postPrestiti(form.value)">
     <section>
         <h4>Aggiungi/aggiorna i dati di un prestito</h4><br>
         <h3>Prestito tabella 1</h3>
@@ -116,24 +133,24 @@
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>ID Libro</mat-label>
-                    <input type="text" name="idLibro" matInput [(ngModel)]="q" placeholder="Es: 1">
+                    <input type="number" name="idLibro" matInput [(ngModel)]="q" placeholder="Es: 1" [formControl]="controller4">
                     <button *ngIf="q" matSuffix mat-icon-button aria-label="Clear" (click)="q=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>ID Utente</mat-label>
-                    <input type="text" name="idUtente" matInput [(ngModel)]="r" placeholder="Es: 1">
+                    <input type="number" name="idUtente" matInput [(ngModel)]="r" placeholder="Es: 1" [formControl]="controller4">
                     <button *ngIf="r" matSuffix mat-icon-button aria-label="Clear" (click)="r=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>Data Inizio Prestito</mat-label>
-                    <input type="text" name="inizioPrestito" matInput [(ngModel)]="s" placeholder="Es: 4/01/2023">
+                    <input type="text" name="inizioPrestito" matInput [(ngModel)]="s" placeholder="Es: 4/01/2023" [formControl]="controller4">
                     <button *ngIf="s" matSuffix mat-icon-button aria-label="Clear" (click)="s=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Data Fine Prestito</mat-label>
-                    <input type="text" name="finePrestito" matInput [(ngModel)]="t" placeholder="Es: 18/01/2023">
+                    <input type="text" name="finePrestito" matInput [(ngModel)]="t" placeholder="Es: 18/01/2023" [formControl]="controller4">
                     <button *ngIf="t" matSuffix mat-icon-button aria-label="Clear" (click)="t=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
@@ -143,29 +160,29 @@
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>ID Libro</mat-label>
-                    <input type="text" name="idLibro2" matInput [(ngModel)]="u" placeholder="Es: 1">
+                    <input type="number" name="idLibro" matInput [(ngModel)]="u" placeholder="Es: 1" [formControl]="controller4">
                     <button *ngIf="u" matSuffix mat-icon-button aria-label="Clear" (click)="u=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Titolo</mat-label>
-                    <input type="text" name="titolo2" matInput [(ngModel)]="v" placeholder="Es: Divina Commedia">
+                    <input type="text" name="titolo" matInput [(ngModel)]="v" placeholder="Es: Divina Commedia" [formControl]="controller4">
                     <button *ngIf="v" matSuffix mat-icon-button aria-label="Clear" (click)="v=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Categoria</mat-label>
-                    <input type="text" name="categoria2" matInput [(ngModel)]="z" placeholder="Es: Romanzo">
+                    <input type="text" name="categoria" matInput [(ngModel)]="z" placeholder="Es: Romanzo" [formControl]="controller4">
                     <button *ngIf="z" matSuffix mat-icon-button aria-label="Clear" (click)="z=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>Data di Pubblicazione</mat-label>
-                    <input type="text" name="dataPubblicazione2" matInput [(ngModel)]="j" placeholder="Es: 15/03/1400">
+                    <input type="text" name="dataPubblicazione" matInput [(ngModel)]="j" placeholder="Es: 15/03/1400" [formControl]="controller4">
                     <button *ngIf="j" matSuffix mat-icon-button aria-label="Clear" (click)="j=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Autore</mat-label>
-                    <input type="text" name="autore2" matInput [(ngModel)]="k" placeholder="Es: John Doe">
+                    <input type="text" name="autore" matInput [(ngModel)]="k" placeholder="Es: John Doe" [formControl]="controller4">
                     <button *ngIf="k" matSuffix mat-icon-button aria-label="Clear" (click)="k=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
@@ -175,36 +192,40 @@
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>ID Utente</mat-label>
-                    <input type="text" name="id4" matInput [(ngModel)]="w" placeholder="Es: 1">
+                    <input type="number" name="id" matInput [(ngModel)]="w" placeholder="Es: 1" [formControl]="controller4">
                     <button *ngIf="w" matSuffix mat-icon-button aria-label="Clear" (click)="w=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Nome</mat-label>
-                    <input type="text" name="nome3" matInput [(ngModel)]="x" placeholder="Es: Marco">
+                    <input type="text" name="nome" matInput [(ngModel)]="x" placeholder="Es: Marco" [formControl]="controller4">
                     <button *ngIf="z" matSuffix mat-icon-button aria-label="Clear" (click)="z=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Cognome</mat-label>
-                    <input type="text" name="cognome3" matInput [(ngModel)]="y" placeholder="Verdi">
+                    <input type="text" name="cognome" matInput [(ngModel)]="y" placeholder="Verdi" [formControl]="controller4">
                     <button *ngIf="y" matSuffix mat-icon-button aria-label="Clear" (click)="y=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
             <div class="col-2">
                 <mat-form-field>
                     <mat-label>Data di Nascita</mat-label>
-                    <input type="text" name="dataNascita3" matInput [(ngModel)]="z" placeholder="Es: 22/05/1993">
+                    <input type="text" name="dataNascita" matInput [(ngModel)]="z" placeholder="Es: 22/05/1993" [formControl]="controller4">
                     <button *ngIf="z" matSuffix mat-icon-button aria-label="Clear" (click)="z=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
                 <mat-form-field>
                     <mat-label>Numero di Telefono</mat-label>
-                    <input type="text" name="numeroTelefono2" matInput [(ngModel)]="aa" placeholder="Es: 3335478987">
+                    <input type="number" name="numeroTelefono" matInput [(ngModel)]="aa" placeholder="Es: 3335478987" [formControl]="controller4">
                     <button *ngIf="aa" matSuffix mat-icon-button aria-label="Clear" (click)="aa=''"><mat-icon>close</mat-icon></button>
                 </mat-form-field><br>
             </div>
         </div>
-    </section>-->
-
-    <section class="button">
-        <button mat-raised-button color="primary" type="submit">Invia</button>
+        <mat-slide-toggle [checked]="controller4.disabled" (change)="controller4.disabled ? controller4.enable() : controller4.disable()">
+            Disabilita questi campi
+        </mat-slide-toggle>
     </section>
 </form>
+
+    <section class="button">
+        <button mat-raised-button color="primary" (click)="postLibrii(formm.value)">Invia</button>
+    </section>
+<!--</form>-->

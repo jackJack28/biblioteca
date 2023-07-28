@@ -18,16 +18,16 @@ export class UtentiService {
   }
 
   postUtenti(utente: Utenti): Observable<Utenti> {
-    return this.http.post<Utenti>(utentiUrl+"/post", utente);
+    return this.http.post<Utenti>(utentiUrl+"/utenti/post", utente);
   }
 
   updateUtenti(id: number, utente: Utenti): Observable<Utenti> {
-    const url = `${utentiUrl}/${id}`;
+    const url = `${utentiUrl}/utenti/${id}`;
     return this.http.put<Utenti>(url, utente);
   }
 
   deleteUtenti(id: number): Observable<void> {
-    const url = `${utentiUrl}/${id}`;
+    const url = `${utentiUrl}/utenti/${id}`;
     return this.http.delete<void>(url);
   }
 }

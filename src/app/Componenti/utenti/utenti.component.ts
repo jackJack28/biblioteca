@@ -12,6 +12,15 @@ export class UtentiComponent implements OnInit {
 
   constructor(private service: UtentiService){}
 
+
+  deleteUtente(id: number){
+    this.service.deleteUtenti(id)
+    .subscribe((res) => {
+      console.log(res);
+      this.ngOnInit();
+    })
+  }
+
   dati: any
   ngOnInit(): void {
     this.service.getUtenti().subscribe(

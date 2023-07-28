@@ -22,12 +22,12 @@ export class LibroService {
   }
 
   updateLibro(id: number, libro: Libro): Observable<Libro> {
-    const url = `${libroUrl}/${id}`;
+    const url = `${libroUrl}/libri/${id}`;
     return this.http.put<Libro>(url, libro);
   }
 
   deleteLibro(id: number): Observable<void> {
-    const url = `${libroUrl}/${id}`;
+    const url = `${libroUrl}/libri/${id}`;
     return this.http.delete<void>(url);
   }
 }

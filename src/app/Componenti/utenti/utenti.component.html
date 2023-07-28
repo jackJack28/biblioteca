@@ -1,3 +1,8 @@
+<section class="button">
+  <button mat-raised-button color="primary" routerLink="/formUtente">Aggiungi utente</button>
+  <button mat-raised-button color="warn" routerLink="/aggiornaUtente">Aggiorna utente</button>
+</section>
+
 <table class="fancy">
   <thead>
     <tr>
@@ -6,6 +11,7 @@
     <th>ID</th>
     <th>Data di nascita</th>
     <th>Numero di telefono</th>
+    <th>Cancella</th>
   </tr>
   </thead>
   <tbody>
@@ -15,7 +21,11 @@
       <td>{{dato.id}}</td>
       <td>{{dato.dataNascita | date: 'dd/MM/YYYY'}}</td>
       <td>{{dato.numeroTelefono}}</td>
+      <td>
+        <span class="cancella" (click)="deleteUtente(dato.id)">X</span>
+      </td>
     </tr>
   </tbody>
 </table>
 
+<div class="div"></div>

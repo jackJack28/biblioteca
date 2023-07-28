@@ -1,0 +1,40 @@
+<h1>Compila i campi per aggiornare un libro</h1>
+
+<form #form="ngForm">    
+    <section>
+        <div class="campi">
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>ID Libro da Aggiornare</mat-label>
+                    <input type="number" name="idLibro" matInput [(ngModel)]="a" placeholder="Es: 1">
+                    <button *ngIf="a" matSuffix mat-icon-button aria-label="Clear" (click)="a=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Titolo</mat-label>
+                    <input type="text" name="titolo" matInput [(ngModel)]="c" placeholder="Es: Divina Commedia">
+                    <button *ngIf="c" matSuffix mat-icon-button aria-label="Clear" (click)="c=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>Categoria</mat-label>
+                    <input type="text" name="categoria" matInput [(ngModel)]="d" placeholder="Es: Romanzo">
+                    <button *ngIf="d" matSuffix mat-icon-button aria-label="Clear" (click)="d=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label>Data di Pubblicazione</mat-label>
+                    <input type="datetime-local" name="dataPubblicazione" matInput [(ngModel)]="e" placeholder="Es: 1304-03-10T00:00:00">
+                    <button *ngIf="e" matSuffix mat-icon-button aria-label="Clear" (click)="e=''"><mat-icon>close</mat-icon></button>
+                </mat-form-field><br>
+                <!--<mat-form-field>
+                    <mat-label>Autore</mat-label>
+                    <input type="text" name="listaAutori" matInput [(ngModel)]="b" placeholder="Es: John Doe">
+                    <button *ngIf="b" matSuffix mat-icon-button aria-label="Clear" (click)="b=[]"><mat-icon>close</mat-icon></button>
+                </mat-form-field>-->
+            </div>
+        </div>
+    </section>
+    <section class="button">
+        <button mat-raised-button color="primary" (click)="updateLibro(form.value.idLibro, form.value)">Invia</button>
+    </section>
+</form>

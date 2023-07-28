@@ -24,3 +24,23 @@
   width: 45px;
   height: 45px;
 }
+
+.div{
+  width: 100%;
+  height: 60px;
+}
+
+.cancella{
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button{
+  margin-left: 35px;
+}

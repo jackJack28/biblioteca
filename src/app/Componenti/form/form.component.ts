@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { Autore } from 'src/app/Interfacce/autore';
 import { Libro } from 'src/app/Interfacce/libro';
+import { Prestito } from 'src/app/Interfacce/prestito';
 import { Utenti } from 'src/app/Interfacce/utenti';
 
 import { AutoreService } from 'src/app/Service/autore.service';
@@ -41,27 +43,32 @@ export class FormComponent {
 
   constructor(private autoreService: AutoreService, private libriService: LibroService,
     private utentiService: UtentiService, private prestitoService: PrestitoService){}
+    
+ controller = new FormControl('')
+ controller2 = new FormControl('')
+ controller3 = new FormControl('')
+ controller4 = new FormControl('')
+
 
   postAutori(autore: Autore){
-    console.log(this.autoreService.postAutore(autore))
-    /*.subscribe(res => {
+    this.autoreService.postAutore(autore)
+    .subscribe(res => {
       console.log(res);
-    })*/
+    })
   }
 
-  /*postLibri(libro: Libro){
-      console.log(this.libriService.postLibro(libro)
-      .subscribe((res)=> 
-      console.log(res)));
-      
-      console.log(libro)
+  /*postLibri(libro:Libro){
+    //console.log(this.libriService.postLibro(libro))
+    //console.log(libro)
+    //libro.listaAutori = []
+    console.log(this.libriService.postLibro(libro))
   }*/
 
-  postLibri(libro:Libro){
-    //console.log(this.libriService.postLibro(libro))
-    console.log(libro)
-    libro.listaAutori = []
+  postLibrii(libro: Libro){
     this.libriService.postLibro(libro)
+    .subscribe((res) => {
+      console.log(res);
+    })
   }
 
   postUtenti(utenti: Utenti){
@@ -69,5 +76,12 @@ export class FormComponent {
     .subscribe((res) => {
       console.log(res);
     })
+  }
+
+  postPrestiti(prestito: Prestito){
+    /*this.prestitoService.postUtenti(utenti)
+    .subscribe((res) => {
+      console.log(res);
+    })*/
   }
 }
